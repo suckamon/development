@@ -1,0 +1,27 @@
+{
+  "name": "my_gulp",
+  "version": "1.0.0",
+  "description": "Gulpプロジェクト",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suckamon/My_Blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suckamon/My_Blog/issues"
+  },
+  "homepage": "https://github.com/suckamon/My_Blog",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^2.0.0",
+    "gulp-uglify": "^1.2.0"
+  }
+}
