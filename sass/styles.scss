@@ -1,0 +1,42 @@
+@charset "utf-8";
+body {
+	width: 100%;
+	background: url();
+	color: ;
+	font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	-webkit-text-size-adjust: 100%;
+}
+a {
+	color: #3f3f3f;
+	text-decoration: none;
+}
+a:hover {
+	color: #3f3f3f;
+	text-decoration: none;
+}
+.alpha a:hover {
+	opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */ 
+	filter: alpha(opacity=75); /* IE lt 8 */
+	-ms-filter: "alpha(opacity=75)"; /* IE 8 */ 
+	-khtml-opacity: .75; /* Safari 1.x */ 
+	-moz-opacity: .75; /* FF lt 1.5, Netscape */ 
+	zoom: 1;
+}
+
+.wrapper {
+	width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*------------------------------------------------------
+.clearfix
+-------------------------------------------------------*/
+.cf:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.cf {
+    zoom: 1;
+}
