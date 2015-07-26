@@ -7,6 +7,29 @@ $subColor: #333;
 $linkColor: #333;
 $baseFontsize: 13px;
 $baseFont: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$baseMargin: 0 0 0 0;
+
+/*------------------------------------------------------
+CMS entryStyles
+-------------------------------------------------------*/
+.entry-body {
+	strong, b {
+	    font-weight: bold;
+	}
+	em, i {
+	    font-style: italic;
+	}
+	del {
+	    text-decoration: line-through;
+	}
+	blockquote {
+	    display: block;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 40px;
+	    -webkit-margin-end: 40px;
+	}
+}
 
 /*------------------------------------------------------
 commonStyles
