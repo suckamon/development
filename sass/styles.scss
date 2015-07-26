@@ -1,34 +1,71 @@
 @charset "utf-8";
+/*------------------------------------------------------
+var
+-------------------------------------------------------*/
+$mainColor: #333;
+$subColor: #333;
+$linkColor: #333;
+$baseFontsize: 13px;
+$baseFont: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+/*------------------------------------------------------
+common
+-------------------------------------------------------*/
 body {
 	width: 100%;
-	color: #333;
-	font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	color: $mainColor;
+	font-family: $baseFont;
 	-webkit-text-size-adjust: 100%;
+	font-size: $baseFontsize;
 }
 a {
-	color: #3f3f3f;
-	text-decoration: none;
+	color: $linkColor;
+	text-decoration: underline;
+	&:hover {
+		color: lighten($linkColor, 20%);
+		text-decoration: none;
+	}
 }
-a:hover {
-	color: #3f3f3f;
-	text-decoration: none;
+.alpha {
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
+		filter: alpha(opacity=75); /* IE lt 8 */
+		-ms-filter: "alpha(opacity=75)"; /* IE 8 */
+		-khtml-opacity: .75; /* Safari 1.x */
+		-moz-opacity: .75; /* FF lt 1.5, Netscape */
+		zoom: 1;
+	}
 }
-.alpha a:hover {
-	opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */ 
-	filter: alpha(opacity=75); /* IE lt 8 */
-	-ms-filter: "alpha(opacity=75)"; /* IE 8 */ 
-	-khtml-opacity: .75; /* Safari 1.x */ 
-	-moz-opacity: .75; /* FF lt 1.5, Netscape */ 
-	zoom: 1;
-}
-
 .wrapper {
 	width: 980px;
 	margin: 0 auto;
+	box-sizing: border-box;
 }
 
 /*------------------------------------------------------
-.clearfix
+formparts
+-------------------------------------------------------*/
+form {
+	input[type="text"] {
+		box-sizing: border-box;
+		height: 32px;
+		padding: 0 4px;
+		font-size: $baseFontsize;
+		border: #ddd solid 1px;
+		border-radius: 3px;
+	}
+	textarea {
+		box-sizing: border-box;
+		padding: 0 4px;
+		font-size: $baseFontsize;
+		border: #ddd solid 1px;
+		border-radius: 3px;
+	}
+}
+
+/*------------------------------------------------------
+clearfix
 -------------------------------------------------------*/
 .cf:after {
     content: "";
