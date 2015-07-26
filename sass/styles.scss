@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*------------------------------------------------------
-var
+commonVar
 -------------------------------------------------------*/
 $mainColor: #333;
 $subColor: #333;
@@ -9,7 +9,7 @@ $baseFontsize: 13px;
 $baseFont: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
 /*------------------------------------------------------
-common
+commonStyles
 -------------------------------------------------------*/
 body {
 	width: 100%;
@@ -44,28 +44,34 @@ a {
 }
 
 /*------------------------------------------------------
-formparts
+formParts
 -------------------------------------------------------*/
+$formBaseHeight: 32px;
+@mixin formBase {
+	box-sizing: border-box;
+	padding: 0 4px;
+	font-size: $baseFontsize;
+	font-family: $baseFont;
+	border: #ddd solid 1px;
+	border-radius: 3px;
+}
+
 form {
 	input[type="text"] {
-		box-sizing: border-box;
-		height: 32px;
-		padding: 0 4px;
-		font-size: $baseFontsize;
-		border: #ddd solid 1px;
-		border-radius: 3px;
+		@include formBase;
+		height: $formBaseHeight
+	}
+	select {
+		@include formBase;
+		height: $formBaseHeight;
 	}
 	textarea {
-		box-sizing: border-box;
-		padding: 0 4px;
-		font-size: $baseFontsize;
-		border: #ddd solid 1px;
-		border-radius: 3px;
+		@include formBase;
 	}
 }
 
 /*------------------------------------------------------
-clearfix
+clearFix
 -------------------------------------------------------*/
 .cf:after {
     content: "";
