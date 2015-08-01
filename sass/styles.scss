@@ -8,6 +8,8 @@ $linkColor: #333;
 $baseFontsize: 13px;
 $baseFont: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 $baseMargin: 0 0 0 0;
+$baseWidth: 1024px;
+$baseLineHeight: 1.3em;
 
 /*------------------------------------------------------
 CMS entryStyles
@@ -35,11 +37,12 @@ CMS entryStyles
 commonStyles
 -------------------------------------------------------*/
 body {
-	width: 100%;
+	min-width: $baseWidth;
 	color: $mainColor;
 	font-family: $baseFont;
 	-webkit-text-size-adjust: 100%;
 	font-size: $baseFontsize;
+	line-hei: $baseLineHeight;
 }
 a {
 	color: $linkColor;
@@ -61,7 +64,7 @@ a {
 	}
 }
 .wrapper {
-	width: 980px;
+	width: $baseWidth;
 	margin: 0 auto;
 	box-sizing: border-box;
 }
