@@ -10,6 +10,7 @@ var rename = require('gulp-rename');
 
 gulp.task("server", function(){
      browser({
+          notify: false
           server: {
                baseDir: "./"
           }
@@ -66,4 +67,3 @@ gulp.task("default", ['server'], function(){
      gulp.watch("img/*(*.jpg|*.png|*.gif)",["img"]);
      gulp.watch("**/*.html", ["html"]);
 });
-
