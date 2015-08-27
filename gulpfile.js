@@ -46,6 +46,12 @@ gulp.task("html", function(){
           .pipe(browser.reload({stream:true}));
 });
 
+gulp.task("php", function(){
+     gulp.src(root + "**/*.php")
+          .pipe(plumber())
+          .pipe(browser.reload({stream:true}));
+});
+
 gulp.task("sass", function(){
      gulp.src(cssSrcPath)
           .pipe(plumber())
@@ -95,4 +101,5 @@ gulp.task("default", ['server'], function(){
      gulp.watch(cssSrcPath,["sass"]);
      gulp.watch(imgSrcPath,["img"]);
      gulp.watch(root + "**/*.html", ["html"]);
+     gulp.watch("**/*.php", ["php"]);
 });
