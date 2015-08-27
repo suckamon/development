@@ -30,6 +30,9 @@ var ejsDestPath = root + "html/";
 * tasks
 ***************************************************/
 gulp.task("server", function(){
+     // browser.init({
+     //    proxy: ''
+     // });
      browser({
           server: {
                baseDir: root
