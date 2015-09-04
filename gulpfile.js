@@ -59,6 +59,8 @@ gulp.task("sass", function(){
           .pipe(autoprefixer())
           .pipe(gulp.dest(cssDestPath))
           .pipe(browser.reload({stream:true}));
+    gulp.src(cssDestPath)
+          .pipe(browser.reload({stream:true}));
 });
 
 gulp.task("sass_watch", function(){
