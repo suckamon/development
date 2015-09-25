@@ -98,12 +98,20 @@ form {
 		@include formBase;
 		height: $formBaseHeight
 	}
+	input[type="password"] {
+		@include formBase;
+		height: $formBaseHeight
+	}
 	select {
 		@include formBase;
 		height: $formBaseHeight;
 	}
 	textarea {
 		@include formBase;
+	}
+	button {
+		border: none;
+		background: none;
 	}
 }
 
