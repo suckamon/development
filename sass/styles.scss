@@ -15,72 +15,159 @@ $baseLineHeight: 1.3em;
 Mixin
 -------------------------------------------------------*/
 @mixin borderBox {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /*------------------------------------------------------
 CMS entryStyles
 -------------------------------------------------------*/
 .entry-body {
-	strong, b {
-	    font-weight: bold;
-	}
-	em, i {
-	    font-style: italic;
-	}
-	del {
-	    text-decoration: line-through;
-	}
-	blockquote {
-	    display: block;
-	    -webkit-margin-before: 1em;
-	    -webkit-margin-after: 1em;
-	    -webkit-margin-start: 40px;
-	    -webkit-margin-end: 40px;
-	}
+    strong, b {
+        font-weight: bold;
+    }
+    em, i {
+        font-style: italic;
+    }
+    del {
+        text-decoration: line-through;
+    }
+    blockquote {
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 40px;
+        -webkit-margin-end: 40px;
+    }
+}
+
+/*------------------------------------------------------
+Gradation Styles
+-------------------------------------------------------*/
+// aqua
+.bg-aqua-gradient {
+  background: rgba(127,219,255,1);
+  background: -webkit-linear-gradient(top, rgba(127,219,255,1) 0%, rgba(82,140,163,1) 100%);
+  background: linear-gradient(to bottom, rgba(127,219,255,1) 0%, rgba(82,140,163,1) 100%);
+}
+
+// blue
+.bg-blue-gradient {
+  background: rgba(0,116,217,1);
+  background: -webkit-linear-gradient(top, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,116,217,1) 0%, rgba(0,65,122,1) 100%);
+}
+
+// navy
+.bg-navy-gradient {
+  background: rgba(0,32,63,1);
+  background: -webkit-linear-gradient(top, rgba(0,32,63,1) 0%, rgba(0,10,20,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,32,63,1) 0%, rgba(0,10,20,1) 100%);
+}
+
+// teal
+.bg-teal-gradient {
+  background: rgba(57,204,204,1);
+  background: -webkit-linear-gradient(top, rgba(57,204,204,1) 0%, rgba(34,122,122,1) 100%);
+  background: linear-gradient(to bottom, rgba(57,204,204,1) 0%, rgba(34,122,122,1) 100%);
+}
+
+// green
+.bg-green-gradient {
+  background: rgba(46,204,64,1);
+  background: -webkit-linear-gradient(top, rgba(46,204,64,1) 0%, rgba(28,122,39,1) 100%);
+  background: linear-gradient(to bottom, rgba(46,204,64,1) 0%, rgba(28,122,39,1) 100%);
+}
+
+// lime
+.bg-lime-gradient {
+  background: rgba(1,255,111,1);
+  background: -webkit-linear-gradient(top, rgba(1,255,111,1) 0%, rgba(2,163,72,1) 100%);
+  background: linear-gradient(to bottom, rgba(1,255,111,1) 0%, rgba(2,163,72,1) 100%);
+}
+
+// yellow
+.bg-yellow-gradient {
+  background: rgba(255,221,0,1);
+  background: -webkit-linear-gradient(top, rgba(255,221,0,1) 0%, rgba(184,147,0,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,221,0,1) 0%, rgba(184,147,0,1) 100%);
+}
+
+// orange
+.bg-orange-gradient {
+  background: rgba(255,133,27,1);
+  background: -webkit-linear-gradient(top, rgba(255,133,27,1) 0%, rgba(255,80,27,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,133,27,1) 0%, rgba(255,80,27,1) 100%);
+}
+
+// red
+.bg-red-gradient {
+  background: rgba(246,46,36,1);
+  background: -webkit-linear-gradient(top, rgba(246,46,36,1) 0%, rgba(255,54,121,1) 100%);
+  background: linear-gradient(to bottom, rgba(246,46,36,1) 0%, rgba(255,54,121,1) 100%);
+}
+
+// fuchsia
+.bg-fuchsia-gradient {
+  background: rgba(240,18,188,1);
+  background: -webkit-linear-gradient(top, rgba(240,18,188,1) 0%, rgba(163,11,128,1) 100%);
+  background: linear-gradient(to bottom, rgba(240,18,188,1) 0%, rgba(163,11,128,1) 100%);
+}
+
+// purple
+.bg-purple-gradient {
+  background: rgba(176,13,201,1);
+  background: -webkit-linear-gradient(top, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);
+  background: linear-gradient(to bottom, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);
+}
+
+// maroon
+.bg-maroon-gradient {
+  background: rgba(204,31,115,1);
+  background: -webkit-linear-gradient(top, rgba(204,31,115,1) 0%, rgba(133,20,75,1) 100%);
+  background: linear-gradient(to bottom, rgba(204,31,115,1) 0%, rgba(133,20,75,1) 100%);
 }
 
 /*------------------------------------------------------
 commonStyles
 -------------------------------------------------------*/
 body {
-	min-width: $baseWidth;
-	color: $mainColor;
-	font-family: $baseFont;
-	-webkit-text-size-adjust: 100%;
-	font-size: $baseFontsize;
-	line-hei: $baseLineHeight;
+    min-width: $baseWidth;
+    color: $mainColor;
+    font-family: $baseFont;
+    -webkit-text-size-adjust: 100%;
+    font-size: $baseFontsize;
+    line-hei: $baseLineHeight;
 }
 a {
-	color: $linkColor;
-	text-decoration: underline;
-	&:hover {
-		color: lighten($linkColor, 20%);
-		text-decoration: none;
-	}
+    color: $linkColor;
+    text-decoration: underline;
+    &:hover {
+        color: lighten($linkColor, 20%);
+        text-decoration: none;
+    }
 }
 .alpha {
-	transition: opacity 0.3s ease;
-	&:hover {
-		opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
-		filter: alpha(opacity=75); /* IE lt 8 */
-		-ms-filter: "alpha(opacity=75)"; /* IE 8 */
-		-khtml-opacity: .75; /* Safari 1.x */
-		-moz-opacity: .75; /* FF lt 1.5, Netscape */
-		zoom: 1;
-	}
+    transition: opacity 0.3s ease;
+    &:hover {
+        opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
+        filter: alpha(opacity=75); /* IE lt 8 */
+        -ms-filter: "alpha(opacity=75)"; /* IE 8 */
+        -khtml-opacity: .75; /* Safari 1.x */
+        -moz-opacity: .75; /* FF lt 1.5, Netscape */
+        zoom: 1;
+    }
 }
 .wrapper {
-	width: $baseWidth;
-	margin: 0 auto;
-	box-sizing: border-box;
+    width: $baseWidth;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 .mr0 {
-	margin-right: 0 !important;
+    margin-right: 0 !important;
 }
 
 /*------------------------------------------------------
@@ -88,37 +175,37 @@ formParts
 -------------------------------------------------------*/
 $formBaseHeight: 32px;
 @mixin formBase {
-	box-sizing: border-box;
-	padding: 0 4px;
-	font-size: $baseFontsize;
-	font-family: $baseFont;
-	border: #ddd solid 1px;
-	border-radius: 3px;
+    box-sizing: border-box;
+    padding: 0 4px;
+    font-size: $baseFontsize;
+    font-family: $baseFont;
+    border: #ddd solid 1px;
+    border-radius: 3px;
 }
 
 form {
-	input[type="text"] {
-		@include formBase;
-		height: $formBaseHeight
-	}
-	input[type="password"] {
-		@include formBase;
-		height: $formBaseHeight
-	}
-	select {
-		@include formBase;
-		height: $formBaseHeight;
-	}
-	textarea {
-		@include formBase;
-	}
-	button {
-		border: none;
-		background: none;
-		&:hover {
-			cursor: pointer;
-		}
-	}
+    input[type="text"] {
+        @include formBase;
+        height: $formBaseHeight
+    }
+    input[type="password"] {
+        @include formBase;
+        height: $formBaseHeight
+    }
+    select {
+        @include formBase;
+        height: $formBaseHeight;
+    }
+    textarea {
+        @include formBase;
+    }
+    button {
+        border: none;
+        background: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 /*------------------------------------------------------
