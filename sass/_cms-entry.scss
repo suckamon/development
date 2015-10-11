@@ -1,0 +1,21 @@
+/*------------------------------------------------------
+CMS entryStyles
+-------------------------------------------------------*/
+.entry-body {
+    strong, b {
+        font-weight: bold;
+    }
+    em, i {
+        font-style: italic;
+    }
+    del {
+        text-decoration: line-through;
+    }
+    blockquote {
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 40px;
+        -webkit-margin-end: 40px;
+    }
+}
