@@ -22,6 +22,53 @@ Mixin
     box-sizing: border-box;
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    filter: alpha(opacity=($opacity * 100));
+}
+
+@mixin flexbox {
+    display:-webkit-box; // old
+    display:-moz-box; // old
+    display:-ms-flexbox; // ie
+    display:-webkit-flex; // new
+    display:flex; // new
+}
+
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == vertical {
+        // vertical
+        background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+        background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+     }
+     @else if $orientation == horizontal {
+        // horizontal
+        background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+        background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+     }
+     @else {
+        // radial
+        background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+        background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+        background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+    }
+}
+
 /*------------------------------------------------------
 Import
 -------------------------------------------------------*/
@@ -50,12 +97,7 @@ a {
 .alpha {
     transition: opacity 0.3s ease;
     &:hover {
-        opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
-        filter: alpha(opacity=75); /* IE lt 8 */
-        -ms-filter: "alpha(opacity=75)"; /* IE 8 */
-        -khtml-opacity: .75; /* Safari 1.x */
-        -moz-opacity: .75; /* FF lt 1.5, Netscape */
-        zoom: 1;
+        @include opacity(0.75);
     }
 }
 .wrapper {
@@ -116,3 +158,8 @@ clearFix
 .cf {
     zoom: 1;
 }
+
+/*------------------------------------------------------
+Styles
+-------------------------------------------------------*/
+
