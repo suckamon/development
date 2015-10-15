@@ -22,6 +22,12 @@ Mixin
     box-sizing: border-box;
 }
 
+@mixin inlineBlock {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
 @mixin opacity($opacity) {
     opacity: $opacity;
     filter: alpha(opacity=($opacity * 100));
