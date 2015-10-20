@@ -129,7 +129,7 @@ formParts
 -------------------------------------------------------*/
 $formBaseHeight: 32px;
 @mixin formBase {
-    box-sizing: border-box;
+    @include borderBox;
     padding: 0 4px;
     font-size: $baseFontsize;
     font-family: $baseFont;
@@ -146,6 +146,23 @@ form {
         @include formBase;
         height: $formBaseHeight
     }
+    input[type="radio"] {
+        &:hover {
+            cursor: pointer;
+        }
+        &+label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    input[type="submit"] {
+        height: $formBaseHeight;
+        padding: 0 18px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
     select {
         @include formBase;
         height: $formBaseHeight;
@@ -154,8 +171,8 @@ form {
         @include formBase;
     }
     button {
-        border: none;
-        background: none;
+        border: none !important;
+        background: none !important;
         &:hover {
             cursor: pointer;
         }
