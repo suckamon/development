@@ -15,7 +15,7 @@ var ejs = require('gulp-ejs');
 /***************************************************
 * path
 ***************************************************/
-var root = "./";
+var root = "./igonomura/dashboard/";
 
 var cssSrcPath = root + "sass/**/*.scss";
 var cssDestPath = root + "css/";
@@ -24,15 +24,15 @@ var jsDestPath = root + "js/min/";
 var imgSrcPath = root + "img/*(*.jpg|*.png|*.gif)";
 var imgDestPath = root + "img/min/";
 var ejsSrcPath = root + "**/*.ejs";
-var ejsDestPath = root + "html/";
+var ejsDestPath = root;
 
 /***************************************************
 * tasks
 ***************************************************/
 gulp.task("server", function(){
-     // browser.init({
-     //    proxy: ''
-     // });
+     browser.init({
+        proxy: 'localhost:80/development/igonomura/dashboard/'
+     });
      browser({
           server: {
                baseDir: root
@@ -102,6 +102,7 @@ gulp.task("default", ['server'], function(){
      gulp.watch([jsSrcPath, "!" + root + "js/min/**/*.js"],["js"]);
      gulp.watch(cssSrcPath,["sass"]);
      gulp.watch(imgSrcPath,["img"]);
+     gulp.watch(ejsSrcPath, ["ejs"]);
      gulp.watch(root + "**/*.html", ["html"]);
      gulp.watch("**/*.php", ["php"]);
 });
