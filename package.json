@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/suckamon/My_Blog/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/suckamon/My_Blog",
+  "homepage": "",
   "devDependencies": {
     "browser-sync": "^2.7.1",
     "gulp": "^3.8.11",
