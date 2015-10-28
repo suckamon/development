@@ -95,7 +95,6 @@ gulp.task("ejs", function() {
     gulp.src(
       [ejsSrcPath,'!' + root + "**/_*.ejs"]
     )
-          .pipe(plumber())
           .pipe(ejs())
           .pipe(gulp.dest(ejsDestPath))
 });
