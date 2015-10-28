@@ -86,6 +86,7 @@ gulp.task("js", function(){
 
 gulp.task("img", function(){
      gulp.src(imgSrcPath)
+          .pipe(plumber())
           .pipe(imagemin())
           .pipe(gulp.dest(imgDestPath));
 });
@@ -94,8 +95,9 @@ gulp.task("ejs", function() {
     gulp.src(
       [ejsSrcPath,'!' + root + "**/_*.ejs"]
     )
-        .pipe(ejs())
-        .pipe(gulp.dest(ejsDestPath))
+          .pipe(plumber())
+          .pipe(ejs())
+          .pipe(gulp.dest(ejsDestPath))
 });
 
 gulp.task("default", ['server'], function(){
