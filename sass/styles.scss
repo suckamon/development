@@ -138,7 +138,9 @@ $formBaseHeight: 32px;
 }
 
 form {
-    input[type="text"] {
+    input[type="text"],
+    input[type="email"],
+    input[type="url"] {
         @include formBase;
         height: $formBaseHeight
     }
