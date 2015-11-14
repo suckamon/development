@@ -33,6 +33,34 @@ Mixin
     filter: alpha(opacity=($opacity * 100));
 }
 
+// BreakPoint
+$tablet: 1024px;
+$sp: 640px;
+$iphone: 320px;
+@mixin media($mediaSize){
+  //Tablet
+  @if $mediaSize == tablet{
+    @media all and (max-width: $tablet + px) {
+      @content
+    }
+  }
+ 
+  //SmartPhone
+  @else if $mediaSize == sp{
+    @media all and (max-width: $sp + px) {
+      @content
+    }
+  }
+ 
+  //iPhone
+  @else if $mediaSize == iPhone{
+    @media all and (max-width: $iphone + px){
+      @content
+    }
+  }
+ 
+}
+
 @mixin flexbox {
     display:-webkit-box; // old
     display:-moz-box; // old
