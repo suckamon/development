@@ -11,11 +11,12 @@ var imagemin = require("gulp-imagemin");
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var ejs = require('gulp-ejs');
+var compass = require('gulp-compass');
 
 /***************************************************
 * path
 ***************************************************/
-var root = "./igonomura/dashboard/";
+var root = "./";
 
 var cssSrcPath = root + "sass/**/*.scss";
 var cssDestPath = root + "css/";
@@ -24,14 +25,14 @@ var jsDestPath = root + "js/min/";
 var imgSrcPath = root + "img/*(*.jpg|*.png|*.gif)";
 var imgDestPath = root + "img/min/";
 var ejsSrcPath = root + "**/*.ejs";
-var ejsDestPath = root;
+var ejsDestPath = root + "dest/";
 
 /***************************************************
 * tasks
 ***************************************************/
 gulp.task("server", function(){
      browser.init({
-        proxy: 'localhost:80/development/igonomura/dashboard/'
+        proxy: 'localhost:80/development/'
      });
      browser({
           server: {
@@ -99,9 +100,21 @@ gulp.task("ejs", function() {
           .pipe(gulp.dest(ejsDestPath))
 });
 
+gulp.task('compass', function(){
+    gulp.src(cssSrcPath)
+    .pipe(plumber())
+    .pipe(compass({
+        config_file: root + 'config.rb',
+        comments: false,
+        css: root + 'css/',
+        sass: root + 'sass/'
+    }));
+});
+
 gulp.task("default", ['server'], function(){
      gulp.watch([jsSrcPath, "!" + root + "js/min/**/*.js"],["js"]);
      gulp.watch(cssSrcPath,["sass"]);
+     gulp.watch(cssSrcPath,["compass"]);
      gulp.watch(imgSrcPath,["img"]);
      gulp.watch(ejsSrcPath, ["ejs"]);
      gulp.watch(root + "**/*.html", ["html"]);
