@@ -151,6 +151,9 @@ a {
 .mr0 {
     margin-right: 0 !important;
 }
+*, ::after, ::before {
+  @include borderBox;
+}
 
 /*------------------------------------------------------
 formParts
