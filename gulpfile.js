@@ -117,7 +117,6 @@ gulp.task("compass_watch", function(){
 
 gulp.task("default", ['server'], function(){
      gulp.watch([jsSrcPath, "!" + root + "js/min/**/*.js"],["js"]);
-     gulp.watch(cssSrcPath,["sass"]);
      gulp.watch(cssSrcPath,["compass"]);
      gulp.watch(imgSrcPath,["img"]);
      gulp.watch(ejsSrcPath, ["ejs"]);
