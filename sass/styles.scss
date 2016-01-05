@@ -33,6 +33,12 @@ Mixin
     filter: alpha(opacity=($opacity * 100));
 }
 
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 // BreakPoint
 $tablet: 1024px;
 $sp: 640px;
