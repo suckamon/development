@@ -103,11 +103,13 @@ gulp.task("ejs", function() {
 gulp.task('compass', function(){
     gulp.src(cssSrcPath)
     .pipe(plumber())
+    .pipe(autoprefixer())
     .pipe(compass({
         config_file: root + 'config.rb',
         comments: false,
         css: root + 'css/',
-        sass: root + 'sass/'
+        sass: root + 'sass/',
+        .pipe(browser.reload({stream:true}));
     }));
 });
 
