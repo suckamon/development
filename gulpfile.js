@@ -107,10 +107,10 @@ gulp.task('compass', function(){
     .pipe(compass({
         config_file: root + 'config.rb',
         comments: false,
-        css: root + 'css/',
-        sass: root + 'sass/',
-        .pipe(browser.reload({stream:true}));
-    }));
+        css: cssDestPath,
+        sass: root + 'sass/'
+    }))
+    .pipe(browser.reload({stream:true}));
 });
 
 gulp.task("compass_watch", function(){
