@@ -138,6 +138,8 @@ body {
     -webkit-text-size-adjust: 100%;
     font-size: $baseFontsize;
     line-height: $baseLineHeight;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 a {
     color: $linkColor;
@@ -163,6 +165,7 @@ a {
 }
 *, ::after, ::before {
   @include borderBox;
+  wordbreak: break-all;
 }
 
 /*------------------------------------------------------
