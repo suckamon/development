@@ -165,8 +165,8 @@ a {
     margin-right: 0 !important;
 }
 *, ::after, ::before {
-  @include borderBox;
-  wordbreak: break-all;
+  @include box-sizing(border-box);
+  word-break: break-all;
 }
 
 /*------------------------------------------------------
