@@ -10,6 +10,8 @@ javascripts_dir = "./js"
 
 cache = false
 
+Encoding.default_external = 'utf-8'
+
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :nested
 
