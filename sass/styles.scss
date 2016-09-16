@@ -142,6 +142,9 @@ body {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+table {
+  border-collapse: separate; // FireFox対策
+}
 a {
     color: $linkColor;
     text-decoration: underline;
