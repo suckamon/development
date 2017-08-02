@@ -141,6 +141,7 @@ body {
     line-height: $baseLineHeight;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    font-display: swap;
 }
 table {
   border-collapse: separate; // FireFox対策
