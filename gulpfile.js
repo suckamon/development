@@ -1,127 +1,62 @@
-/***************************************************
-* module load
-***************************************************/
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var autoprefixer = require("gulp-autoprefixer");
-var uglify = require("gulp-uglify");
-var browser = require("browser-sync");
-var plumber = require("gulp-plumber");
-var imagemin = require("gulp-imagemin");
-var cssmin = require('gulp-cssmin');
-var rename = require('gulp-rename');
-var ejs = require('gulp-ejs');
-var compass = require('gulp-compass');
+const gulp = require('gulp');
+const plumber = require("gulp-plumber");
+const sass = require('gulp-sass');
+const compass = require('gulp-compass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync');
 
-/***************************************************
-* path
-***************************************************/
-var root = "./";
+//setting : paths
+const paths = {
+  'root': './',
+  'html': './**/*.html',
+  'cssSrc': './sass/**/*.scss',
+  'cssDist': './css/',
+  'compassConf': './config.rb'
+}
 
-var cssSrcPath = root + "sass/**/*.scss";
-var cssDestPath = root + "css/";
-var jsSrcPath = root + "js/**/*.js";
-var jsDestPath = root + "js/min/";
-var imgSrcPath = root + "img/*(*.jpg|*.png|*.gif)";
-var imgDestPath = root + "img/min/";
-var ejsSrcPath = root + "**/*.ejs";
-var ejsDestPath = root + "dest/";
+//gulpコマンドの省略
+const { watch, series, task, src, dest, parallel } = require('gulp');
 
-/***************************************************
-* tasks
-***************************************************/
-gulp.task("server", function(){
-     browser.init({
-        proxy: 'localhost:80/development/'
-     });
-     browser({
-          server: {
-               baseDir: root
-          }
-     });
-});
-
-gulp.task("html", function(){
-     gulp.src(root + "**/*.html")
-          .pipe(plumber())
-          .pipe(browser.reload({stream:true}));
-});
-
-gulp.task("php", function(){
-     gulp.src(root + "**/*.php")
-          .pipe(plumber())
-          .pipe(browser.reload({stream:true}));
-});
-
-gulp.task("sass", function(){
-     gulp.src(cssSrcPath)
-          .pipe(plumber())
-          .pipe(sass())
-          .pipe(autoprefixer())
-          .pipe(gulp.dest(cssDestPath))
-          .pipe(browser.reload({stream:true}));
-    gulp.src(cssDestPath)
-          .pipe(browser.reload({stream:true}));
-});
-
-gulp.task("sass_watch", function(){
-     gulp.watch(cssSrcPath,["sass"]);
-});
-
-gulp.task('cssmin', function () {
-    gulp.src(root + 'css/*.css')
-        .pipe(cssmin())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest(root + 'css/min'));
-});
-
-gulp.task("js", function(){
-     gulp.src([jsSrcPath, "!" + root + "js/min/**/*.js"])
-          .pipe(plumber())
-          .pipe(uglify())
-          .pipe(gulp.dest(jsDestPath))
-          .pipe(browser.reload({stream:true}));
-});
-
-gulp.task("img", function(){
-     gulp.src(imgSrcPath)
-          .pipe(plumber())
-          .pipe(imagemin())
-          .pipe(gulp.dest(imgDestPath));
-});
-
-gulp.task("ejs", function() {
-    gulp.src(
-      [ejsSrcPath,'!' + root + "**/_*.ejs"]
-    )
-          .pipe(ejs())
-          .pipe(gulp.dest(ejsDestPath))
-});
-
-gulp.task('compass', function(){
-    gulp.src(cssSrcPath)
+//Sass
+task('sass', function() {
+  return (
+    src(paths.cssSrc)
     .pipe(plumber())
-    .pipe(autoprefixer())
     .pipe(compass({
-        config_file: root + 'config.rb',
-        comments: false,
-        css: cssDestPath,
-        sass: root + 'sass/'
+      config_file: paths.compassConf,
+      comments: false,
+      css: paths.cssDist,
+      sass: `${paths.root}sass`
     }))
-    .pipe(browser.reload({stream:true}));
+    .pipe(autoprefixer({
+      browsers: ['ie >= 11'],
+      cascade: false,
+      grid: true
+    }))
+  );
 });
 
-gulp.task("compass_watch", function(){
-     gulp.watch(cssSrcPath,["compass"]);
+// browser-sync
+task('browser-sync', () => {
+  return browserSync.init({
+    server: {
+      baseDir: paths.root
+    },
+    port: 8080,
+    reloadOnRestart: true
+  });
 });
 
-gulp.task("default", ['server'], function(){
-     gulp.watch([jsSrcPath, "!" + root + "js/min/**/*.js"],["js"]);
-     gulp.watch(cssSrcPath,["compass"]);
-     gulp.watch(imgSrcPath,["img"]);
-     gulp.watch(ejsSrcPath, ["ejs"]);
-     gulp.watch(root + "**/*.html", ["html"]);
-     gulp.watch("**/*.php", ["php"]);
+// browser-sync reload
+task('reload', (done) => {
+  browserSync.reload();
+  done();
 });
+
+//watch
+task('watch', (done) => {
+  watch([paths.cssSrc], series('sass', 'reload'));
+  watch([paths.html], series('reload'));
+  done();
+});
+task('default', parallel('watch', 'browser-sync'));
