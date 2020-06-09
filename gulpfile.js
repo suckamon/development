@@ -4,6 +4,7 @@ const sass = require('gulp-sass');
 const compass = require('gulp-compass');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
+const babel = require('gulp-babel');
 
 //setting : paths
 const paths = {
@@ -11,7 +12,9 @@ const paths = {
   'html': './**/*.html',
   'cssSrc': './sass/**/*.scss',
   'cssDist': './css/',
-  'compassConf': './config.rb'
+  'compassConf': './config.rb',
+  'jsSrc': './src/*.js',
+  'jsDist': './js/'
 }
 
 //gulpコマンドの省略
@@ -53,9 +56,20 @@ task('reload', (done) => {
   done();
 });
 
+task('babel', () => {
+  return (
+    src(paths.jsSrc)
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
+    .pipe(dest(paths.jsDist))
+  );
+});
+
 //watch
 task('watch', (done) => {
   watch([paths.cssSrc], series('sass', 'reload'));
+  watch([paths.jsSrc], series('babel', 'reload'));
   watch([paths.html], series('reload'));
   done();
 });
