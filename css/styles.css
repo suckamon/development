@@ -1,0 +1,182 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/*------------------------------------------------------
+commonVar
+-------------------------------------------------------*/
+/*------------------------------------------------------
+Mixin
+-------------------------------------------------------*/
+/*------------------------------------------------------
+Import
+-------------------------------------------------------*/
+/*------------------------------------------------------
+commonStyles
+-------------------------------------------------------*/
+body {
+  min-width: 1024px;
+  color: #333;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  font-size: 13px;
+  line-height: 1.5em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-display: swap; }
+
+table {
+  border-collapse: separate; }
+
+a {
+  color: #333;
+  text-decoration: underline; }
+  a:hover {
+    color: #666666;
+    text-decoration: none; }
+
+.alpha {
+  transition: opacity 0.3s ease; }
+  .alpha:hover {
+    opacity: 0.75;
+    filter: alpha(opacity=75); }
+
+.wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+
+.mr0 {
+  margin-right: 0 !important; }
+
+*, ::after, ::before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  word-break: break-all; }
+
+/*------------------------------------------------------
+formParts
+-------------------------------------------------------*/
+form input[type="text"],
+form input[type="email"],
+form input[type="url"] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 4px;
+  font-size: 13px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  border: #ddd solid 1px;
+  border-radius: 3px;
+  height: 32px; }
+form input[type="password"] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 4px;
+  font-size: 13px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  border: #ddd solid 1px;
+  border-radius: 3px;
+  height: 32px; }
+form input[type="radio"]:hover {
+  cursor: pointer; }
+form input[type="radio"] + label:hover {
+  cursor: pointer; }
+form input[type="submit"] {
+  height: 32px;
+  padding: 0 18px; }
+  form input[type="submit"]:hover {
+    cursor: pointer; }
+form select {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 4px;
+  font-size: 13px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  border: #ddd solid 1px;
+  border-radius: 3px;
+  height: 32px; }
+form textarea {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 4px;
+  font-size: 13px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  border: #ddd solid 1px;
+  border-radius: 3px; }
+form button {
+  border: none !important;
+  background: none !important; }
+  form button:hover {
+    cursor: pointer; }
+
+/*------------------------------------------------------
+clearFix
+-------------------------------------------------------*/
+.cf:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.cf {
+  zoom: 1; }
+
+/*------------------------------------------------------
+Styles
+-------------------------------------------------------*/
