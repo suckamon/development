@@ -7,6 +7,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
+const watchify = require('watchify');
 
 //setting : paths
 const paths = {
@@ -60,20 +61,39 @@ task('reload', (done) => {
 });
 
 // browserify
-task('browserify', (done) => {
-  browserify(paths.jsMain, { debug: true })
-    .transform(babelify)
-    .bundle()
-    .on("error", function (err) { console.log("Error : " + err.message); })
-    .pipe(source('bundle.js'))
-    .pipe(dest(paths.jsDist))
+function bundle(watching=false) {
+  const b = browserify({
+    entries: [paths.jsMain],
+    transform: ['babelify'],
+    debug: true,
+    plugin: (watching) ? [watchify] : null
+  })
+  .on('update', () => {
+    bundler();
+    console.log('scripts rebuild');
+  });
+
+  function bundler() {
+    return b.bundle()
+      .on('error', (e) => {
+        console.log(e.message);
+      })
+      .pipe(source('bundle.js'))
+      .pipe(dest(paths.jsDist));
+  }
+
+  return bundler();
+}
+
+task('bundle', (done) => {
+  bundle(true);
   done();
-});
+})
 
 //watch
 task('watch', (done) => {
   watch([paths.cssSrc], series('sass', 'reload'));
-  watch([paths.jsSrc], series('browserify', 'reload'));
+  watch([paths.jsSrc], series('bundle', 'reload'));
   watch([paths.html], series('reload'));
   done();
 });
